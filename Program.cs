@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Net;
 using System.Security.Cryptography;
@@ -45,12 +45,14 @@ namespace CoreDownloader
                 Console.Write("核心不存在或安全校验不通过,重新Download中\n");
                 needsDownload = true;
             }
+
+
             if (needsDownload)
-                
             {
                 Console.Write("当前下载器版本 0.0.1.020 MCZLFConnectToolP2PMode适用\n");
-            string url = Environment.Is64BitOperatingSystem ? "https://pan.29o.cn/down.php/886c8ef10288d546fe254b531870318d.exe" : "https://pan.29o.cn/down.php/e8f1007a43eb520eecf9c0fade0300b0.exe";
-            string tempPath = Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "MCZLFAPP", "Temp");
+                string url = GetDownloadUrl();
+                //           string url = Environment.Is64BitOperatingSystem ? "https://mczlf.loft.games/ConnectTool/main.exe" : "https://mczlf.loft.games/ConnectTool/main32.exe";
+                string tempPath = Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "MCZLFAPP", "Temp");
             if (!Directory.Exists(tempPath)) Directory.CreateDirectory(tempPath);
             string downloadFilePath = Path.Combine(tempPath, "main.exe");
             using (WebClient webClient = new WebClient())
@@ -93,6 +95,35 @@ namespace CoreDownloader
                 throw new Exception("Error computing MD5 hash for file " + filePath, ex);
             }
         }
-        //此后代码不会大改,功能正常就行了
+        static string GetDownloadUrl()
+        {
+            string official64 = "Not Provide in code";
+            string official32 = "Not Provide in code but Release";
+            string mirror64 = "https://pan.29o.cn/down.php/886c8ef10288d546fe254b531870318d.exe"; 
+            string mirror32 = "https://pan.29o.cn/down.php/e8f1007a43eb520eecf9c0fade0300b0.exe";
+            Console.WriteLine("\n请选择下载方式：");
+            Console.WriteLine("1. 官网下载(默认)");
+            Console.WriteLine("2. 镜像下载");
+            while (true)
+            {
+                Console.Write("请输入选项（1 或 2）：");
+                string input = Console.ReadLine();
+
+                if (input == "1")
+                {
+                    return Environment.Is64BitOperatingSystem ? official64 : official32;
+                }
+                else if (input == "2")
+                {
+                    return Environment.Is64BitOperatingSystem ? mirror64 : mirror32;
+                }
+                else
+                {
+                    Console.WriteLine("使用默认下载方式\n");
+                    return Environment.Is64BitOperatingSystem ? official64 : official32;
+                }
+            }
+            //此后代码不会大改,功能正常就行了
+        }
     }
 }
