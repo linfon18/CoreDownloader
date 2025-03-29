@@ -1,7 +1,6 @@
 ---
 
 # CoreDownloader
----
 
 一个用于下载或是修复/校验Tool-P2PMode核心文件的工具，适用于MCZLFConnectToolP2PMode。🚀
 ⚠️ 仅供MCZLF Connect Tool 0.0.5及以上版本使用，0.0.4及更低版本暂无适配计划
