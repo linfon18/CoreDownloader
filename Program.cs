@@ -45,9 +45,8 @@ namespace CoreDownloader
                 Console.Write("核心不存在或安全校验不通过,重新Download中\n");
                 needsDownload = true;
             }
-
-
             if (needsDownload)
+                
             {
                 Console.Write("当前下载器版本 0.0.1.020 MCZLFConnectToolP2PMode适用\n");
             string url = Environment.Is64BitOperatingSystem ? "https://pan.29o.cn/down.php/886c8ef10288d546fe254b531870318d.exe" : "https://pan.29o.cn/down.php/e8f1007a43eb520eecf9c0fade0300b0.exe";
