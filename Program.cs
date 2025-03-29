@@ -49,9 +49,10 @@ namespace CoreDownloader
 
             if (needsDownload)
             {
-                Console.Write("当前下载器版本 0.0.1.020 MCZLFConnectToolP2PMode适用\n");
-            string url = Environment.Is64BitOperatingSystem ? "https://mczlf.loft.games/ConnectTool/main.exe" : "https://mczlf.loft.games/ConnectTool/main32.exe";
-            string tempPath = Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "MCZLFAPP", "Temp");
+                Console.Write("当前下载器版本 0.0.1.023 MCZLFConnectToolP2PMode适用\n");
+                string url = GetDownloadUrl();
+                //           string url = Environment.Is64BitOperatingSystem ? "https://mczlf.loft.games/ConnectTool/main.exe" : "https://mczlf.loft.games/ConnectTool/main32.exe";
+                string tempPath = Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "MCZLFAPP", "Temp");
             if (!Directory.Exists(tempPath)) Directory.CreateDirectory(tempPath);
             string downloadFilePath = Path.Combine(tempPath, "main.exe");
             using (WebClient webClient = new WebClient())
@@ -94,6 +95,35 @@ namespace CoreDownloader
                 throw new Exception("Error computing MD5 hash for file " + filePath, ex);
             }
         }
-        //此后代码不会大改,功能正常就行了
+        static string GetDownloadUrl()
+        {
+            string official64 = "https://mczlf.loft.games/ConnectTool/main.exe";
+            string official32 = "https://mczlf.loft.games/ConnectTool/main32.exe";
+            string mirror64 = "https://pan.29o.cn/down.php/886c8ef10288d546fe254b531870318d.exe"; 
+            string mirror32 = "https://pan.29o.cn/down.php/e8f1007a43eb520eecf9c0fade0300b0.exe";
+            Console.WriteLine("\n请选择下载方式：");
+            Console.WriteLine("1. 官网下载(默认)");
+            Console.WriteLine("2. 镜像下载");
+            while (true)
+            {
+                Console.Write("请输入选项（1 或 2）：");
+                string input = Console.ReadLine();
+
+                if (input == "1")
+                {
+                    return Environment.Is64BitOperatingSystem ? official64 : official32;
+                }
+                else if (input == "2")
+                {
+                    return Environment.Is64BitOperatingSystem ? mirror64 : mirror32;
+                }
+                else
+                {
+                    Console.WriteLine("使用默认下载方式\n");
+                    return Environment.Is64BitOperatingSystem ? official64 : official32;
+                }
+            }
+            //此后代码不会大改,功能正常就行了
+        }
     }
 }
