@@ -2,11 +2,11 @@
 
 # CoreDownloader
 
-用于下载或是修复/校验Tool-P2PMode核心文件的工具，适用于MCZLFConnectToolP2PMode。🚀
-⚠️ 仅供MCZLF Connect Tool 0.0.5及以上版本使用，0.0.4及更低版本暂无适配计划
+用于下载或是修复/校验Tool-P2PMode核心文件的工具，适用于MinecraftConnectToolP2PMode。🚀
+⚠️ 仅供Minecraft Connect Tool 0.0.5及以上版本使用，0.0.4及更低版本暂无适配计划
 
 ## 功能简介
-- ⚠️ 仅供MCZLF Connect Tool 0.0.5及以上版本使用
+- ⚠️ 仅供Minecraft Connect Tool 0.0.5及以上版本使用
 - ✅ 检查本地是否已存在目标文件（`main.exe` 或 `main32.exe`）。
 - 🔒 通过MD5校验确保文件的完整性和安全性。
 - 📥 根据系统架构（64位或32位）自动选择合适的文件进行下载。
@@ -40,7 +40,7 @@
 ## 示例输出
 
 ```plaintext
-当前下载器版本 0.0.1 MCZLFConnectToolP2PMode适用
+当前下载器版本 0.0.1.023 MinecraftConnectToolP2PMode适用
 下载进度: 50%
 下载进度: 100%
 下载完成
@@ -68,7 +68,7 @@
 
 ---
 ## 遇到问题？
-点击链接加入群聊【✨MCZLF Connect Tool交流群/M_Bot战双自动签丨禁广｜禁商｜】：https://qm.qq.com/q/5cV7gnSiDK
+点击链接加入群聊【✨MMinecraft Connect Tool交流群】：https://qm.qq.com/q/5cV7gnSiDK
 ---
 
 ### 使用的Emoji
