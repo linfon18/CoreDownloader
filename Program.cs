@@ -4,6 +4,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace CoreDownloader
 {
@@ -25,12 +26,15 @@ namespace CoreDownloader
                 if (md5Hash == fileMd5)
                 {
                     Console.Write("64位核心已存在且安全校验通过\n");
+                    MessageBox.Show("64位核心已存在且安全校验通过", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    needsDownload = false;
                 }
                 else
                 {
                     if (md5Hash == fileMd532)
                     {
                         Console.Write("32位核心已存在且安全校验通过\n");
+                        MessageBox.Show("32位核心已存在且安全校验通过", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         needsDownload = false;
                     }
                     else
@@ -49,9 +53,8 @@ namespace CoreDownloader
 
             if (needsDownload)
             {
-                Console.Write("当前下载器版本 0.0.1.023 MCZLFConnectToolP2PMode适用\n");
+                Console.Write("当前下载器版本 0.0.1.024 MinecraftConnectToolP2PMode适用\n");
                 string url = GetDownloadUrl();
-                //           string url = Environment.Is64BitOperatingSystem ? "https://mczlf.loft.games/ConnectTool/main.exe" : "https://mczlf.loft.games/ConnectTool/main32.exe";
                 string tempPath = Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "MCZLFAPP", "Temp");
             if (!Directory.Exists(tempPath)) Directory.CreateDirectory(tempPath);
             string downloadFilePath = Path.Combine(tempPath, "main.exe");
@@ -92,7 +95,7 @@ namespace CoreDownloader
             }
             catch (Exception ex)
             {
-                throw new Exception("Error computing MD5 hash for file " + filePath, ex);
+                throw new Exception("计算MD5时出现错误 " + filePath, ex);
             }
         }
         static string GetDownloadUrl()
