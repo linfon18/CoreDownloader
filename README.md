@@ -2,8 +2,8 @@
 
 # CoreDownloader
 
-🚀 用于下载或是修复/校验Tool-P2PMode核心文件的工具，适用于MinecraftConnectToolP2PMode。
-⚠️ 仅供Minecraft Connect Tool 0.0.5及以上版本使用，0.0.4及更低版本暂无适配计划
+- 🚀 用于下载或是修复/校验Tool-P2PMode核心文件的工具，适用于MinecraftConnectToolP2PMode。
+- ⚠️ 仅供Minecraft Connect Tool 0.0.5及以上版本使用，0.0.4及更低版本暂无适配计划
 
 ## 功能简介
 - ⚠️ 仅供Minecraft Connect Tool 0.0.5及以上版本使用
