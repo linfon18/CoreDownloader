@@ -49,9 +49,8 @@ namespace CoreDownloader
 
             if (needsDownload)
             {
-                Console.Write("当前下载器版本 0.0.1.020 MCZLFConnectToolP2PMode适用\n");
+                Console.Write("当前下载器版本 0.0.1.020 MinecraftConnectToolP2PMode适用\n");
                 string url = GetDownloadUrl();
-                //           string url = Environment.Is64BitOperatingSystem ? "https://mczlf.loft.games/ConnectTool/main.exe" : "https://mczlf.loft.games/ConnectTool/main32.exe";
                 string tempPath = Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "MCZLFAPP", "Temp");
             if (!Directory.Exists(tempPath)) Directory.CreateDirectory(tempPath);
             string downloadFilePath = Path.Combine(tempPath, "main.exe");
@@ -97,8 +96,8 @@ namespace CoreDownloader
         }
         static string GetDownloadUrl()
         {
-            string official64 = "Not Provide in code";
-            string official32 = "Not Provide in code but Release";
+            string official64 = "https://mczlf.loft.games/ConnectTool/main.exe";
+            string official32 = "https://mczlf.loft.games/ConnectTool/main32.exe";
             string mirror64 = "https://pan.29o.cn/down.php/886c8ef10288d546fe254b531870318d.exe"; 
             string mirror32 = "https://pan.29o.cn/down.php/e8f1007a43eb520eecf9c0fade0300b0.exe";
             Console.WriteLine("\n请选择下载方式：");
